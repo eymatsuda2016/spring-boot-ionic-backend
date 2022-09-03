@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eduardomatsuda.cursomc.domain.Categoria;
-import com.eduardomatsuda.cursomc.services.CategoriaService;
+import com.eduardomatsuda.cursomc.domain.Cliente;
+import com.eduardomatsuda.cursomc.services.ClienteService;
 
 
 
 @RestController
-@RequestMapping(value = "/categorias")
-public class CategoriaResource {
+@RequestMapping(value = "/clientes")
+public class ClienteResource {
 	
 	@Autowired
-	private CategoriaService service;
+	private ClienteService service;
 	
 	@RequestMapping(value= "/{id}", method = RequestMethod.GET)
 	public ResponseEntity <?> find(@PathVariable Integer id) {
 		
-		Categoria obj = service.find(id);
+		Cliente obj = service.find(id);
 		return ResponseEntity.ok(). body(obj);
 	}
 }
